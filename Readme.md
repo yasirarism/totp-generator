@@ -2,7 +2,7 @@
 
 ![](totp-generator.png)
 
-[Demo](https://totp.danhersam.com/)
+[Demo](https://totp.yasirpedia.eu.org/)
 
 This page lets you easily generate a time-based one time password (TOTP) entirely in the web browser in case you ever lose access to your phone.
 
@@ -12,10 +12,10 @@ It uses the excellent [otpauth](https://github.com/zant95/otpauth) package, down
 
 ### Private key
 
-You can provide the key in the URL using the URI fragment or a query parameter, for example: `https://totp.danhersam.com/#/KEY` or `https://totp.danhersam.com?key=KEY`
+You can provide the key in the URL using the URI fragment or a query parameter, for example: `https://totp.yasirpedia.eu.org/#/KEY` or `https://totp.yasirpedia.eu.org?key=KEY`
 
 ### Digits and period
-You can also provide the digits and token period using a query string in the URL, for example: `https://totp.danhersam.com/?period=60&digits=6&key=KEY`
+You can also provide the digits and token period using a query string in the URL, for example: `https://totp.yasirpedia.eu.org/?period=60&digits=6&key=KEY`
 
 ## Authy support
 
@@ -36,7 +36,7 @@ appManager.getModel().forEach(model => console.log(`${model.name}: ${model.secre
 
 ### Convert hex keys to base-32
 
-Convert each exported hex key from above using the [hex to base-32 converter](https://totp.danhersam.com/hex-to-base32.html) in this repository.
+Convert each exported hex key from above using the [hex to base-32 converter](https://totp.yasirpedia.eu.org/hex-to-base32.html) in this repository.
 
 ### Authy settings
 
@@ -51,7 +51,7 @@ If your authenticator application only allows 6 or 8 digits (like [FreeOTP](http
 
 ### Import using QR codes
 
-To make it easier to import Authy entries into another authenticator app, generate QR codes using my [QR code generator](https://dan.hersam.com/tools/gen-qr-code.html).
+To make it easier to import Authy entries into another authenticator app, generate QR codes using [QR code generator](https://dan.hersam.com/tools/gen-qr-code.html).
 
 ### Other Resources
 
