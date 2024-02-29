@@ -35,6 +35,8 @@ const app = Vue.createApp({
       algorithm: 'SHA1',
       updatingIn: 30,
       token: null,
+      prev_token: null,
+      next_token: null,
       clipboardButton: null,
     };
   },
@@ -66,8 +68,17 @@ const app = Vue.createApp({
 
   methods: {
     update: function () {
+      
       this.updatingIn = this.period - (getCurrentSeconds() % this.period);
+
+      this.totp.timestamp = Date.now();
       this.token = truncateTo(this.totp.generate(), this.digits);
+      
+      this.totp.timestamp = Date.now() - this.period * 1000;
+      this.prev_token = truncateTo(this.totp.generate(), this.period);
+      
+      this.totp.timestamp = Date.now() + this.period * 1000;
+      this.next_token = truncateTo(this.totp.generate(), this.period);
     },
 
     getKeyFromUrl: function () {

@@ -22,6 +22,9 @@
     .footer {
       padding: 2rem;
     }
+    .code-reel {
+      color: grey;
+    }
 
     @media screen and (min-width: 1068px) {
       .container {
@@ -71,7 +74,7 @@
       </div>
 
       <div class="box">
-        <p class="title is-size-1 has-text-centered" id="token">{{ token }}</p>
+        <p class="title is-size-1 has-text-centered" id="tokens"><sub  class="code-reel">{{ prev_token }}</sub><span id="token">{{ token }}</span><sub class="code-reel">{{ next_token }}</sub></p>
       </div>
 
       <div class="control is-clearfix">
