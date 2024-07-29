@@ -88,11 +88,11 @@
       <div class="column">
         <div class="content">
           <span class="has-text-grey is-size-7">Updating in {{ updatingIn }} seconds</span>
-          <progress class="progress is-info is-small" v-bind:value="period - updatingIn" :max="period"></progress>
+          <progress class="progress is-info is-small" v-bind:value="updatingIn" :max="period"></progress>
         </div>
-        
+  
         <div class="box">
-          <p class="title is-size-1 has-text-centered" id="token">{{ token }}</p>
+          <p class="title is-size-1 has-text-centered" id="tokens"><sub  class="code-reel">{{ prev_token }}</sub> <span id="token">{{ token }}</span> <sub class="code-reel">{{ next_token }}</sub></p>
         </div>
         
         <div class="control is-clearfix">
