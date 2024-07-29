@@ -29,7 +29,9 @@ function parseURLSearch(search) {
 const app = Vue.createApp({
   data() {
     return {
-      secret_key: 'JBSWY3DPEHPK3PXP',
+      secret_key: 'XXXXXSAMPLEXXXXX',
+      nickname: 'user@sample.com',
+      uri: 'otpauth://',
       digits: 6,
       period: 30,
       algorithm: 'SHA1',
@@ -79,6 +81,10 @@ const app = Vue.createApp({
       
       this.totp.timestamp = Date.now() + this.period * 1000;
       this.next_token = truncateTo(this.totp.generate(), this.period);
+
+      this.uri = 'otpauth://totp/' + encodeURIComponent(this.nickname) + '?secret=' + this.secret_key;
+      document.getElementById("qr").innerHTML = "";
+      var qrcode = new QRCode(document.getElementById("qr"), this.uri);
     },
 
     getKeyFromUrl: function () {
