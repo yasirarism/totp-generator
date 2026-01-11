@@ -14,6 +14,12 @@
       height: 100%;
     }
 
+    body {
+      background: radial-gradient(circle at top, rgba(120, 196, 255, 0.25), transparent 45%),
+        linear-gradient(135deg, #0b1220 0%, #101b2d 50%, #0b1220 100%);
+      color: #e6f0ff;
+    }
+
     body > footer {
       position: sticky;
       top: 100vh;
@@ -24,6 +30,55 @@
     }
     .code-reel {
       color: grey;
+    }
+    .glass-panel {
+      background: rgba(12, 18, 32, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      box-shadow: 0 20px 45px rgba(2, 8, 20, 0.6);
+      backdrop-filter: blur(16px);
+      padding: 2.5rem;
+    }
+    .glass-card,
+    .box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+    }
+    .title,
+    .label,
+    .content,
+    .footer,
+    .footer a {
+      color: #e6f0ff;
+    }
+    a {
+      color: #9ad0ff;
+    }
+    .input {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #e6f0ff;
+      box-shadow: none;
+    }
+    .input::placeholder {
+      color: rgba(230, 240, 255, 0.6);
+    }
+    .progress.is-info::-webkit-progress-value {
+      background-color: rgba(154, 208, 255, 0.85);
+    }
+    .progress.is-info::-moz-progress-bar {
+      background-color: rgba(154, 208, 255, 0.85);
+    }
+    .button.is-light {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #e6f0ff;
+    }
+    .button.is-light:hover {
+      background: rgba(154, 208, 255, 0.25);
     }
 
     @media screen and (min-width: 1068px) {
@@ -42,7 +97,7 @@
   <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js" integrity="sha256-xUHvBjJ4hahBW8qN9gceFBibSFUzbe9PNttUvehITzY=" crossorigin="anonymous"></script>
   <script defer src="js/app.js?v=1.2"></script>
 
-  <section id="app" class="section" v-cloak>
+  <section id="app" class="section glass-panel" v-cloak>
 
     <div class="container"></div>
       <h1 class="title" title="Time-Based One-Time Passcode"><a href="https://en.wikipedia.org/wiki/One-time_password#Time-synchronized">TOTP</a> Token Generator</h1>
