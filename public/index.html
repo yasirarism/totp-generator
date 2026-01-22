@@ -80,6 +80,34 @@
     .button.is-light:hover {
       background: rgba(154, 208, 255, 0.25);
     }
+    .button.is-clipboard {
+      background: rgba(154, 208, 255, 0.35);
+      border: 1px solid rgba(154, 208, 255, 0.6);
+      box-shadow: 0 10px 20px rgba(8, 20, 40, 0.35);
+    }
+    .button.is-clipboard:hover {
+      background: rgba(154, 208, 255, 0.55);
+    }
+    .toast {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 20;
+      background: rgba(18, 28, 48, 0.9);
+      border: 1px solid rgba(154, 208, 255, 0.35);
+      color: #e6f0ff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(2, 8, 20, 0.5);
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+    }
+    .toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media screen and (min-width: 1068px) {
       .container {
@@ -151,21 +179,22 @@
         </div>
         
         <div class="control is-clearfix">
-          <a class="button is-large is-light is-pulled-right" id="clipboard-button" data-clipboard-target="#token" title="Copy token to clipboard">
+          <a class="button is-large is-light is-clipboard is-pulled-right" id="clipboard-button" data-clipboard-target="#token" title="Copy token to clipboard">
           <img src="img/clippy.svg" height="36" width="36">
           </a>
         </div>
       </div>
       <div class="column">
-        <div id="qr" align="center"></div>
+      <div id="qr" align="center"></div>
       </div>
     </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </section>
 
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        Credit by <a href="https://dan.hersam.com">Dan Hersam</a> and edited by <a href="https://t.me/Yasir_ID">Yasir</a>. Source on <a href="https://github.com/yasirarism/totp-generator">Github</a>.
+        © YS Web <span id="copyright-year"></span> • Created with ❤️
       </div>
     </div>
   </footer>
