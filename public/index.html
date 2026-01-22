@@ -83,9 +83,7 @@
     .button.is-clipboard {
       background: rgba(154, 208, 255, 0.35);
       border: 1px solid rgba(154, 208, 255, 0.6);
-      box-shadow: 0 10px 20px rgba(8, 20, 40, 0.35);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(8, 20, 40, 0.35), inset 0 -2px 0 rgba(20, 255, 140, 0.75);
     }
     .button.is-clipboard:hover {
       background: rgba(154, 208, 255, 0.55);
@@ -93,18 +91,8 @@
     .button.is-clipboard img {
       filter: brightness(0) invert(1);
     }
-    .button.is-clipboard::after {
-      content: "";
-      position: absolute;
-      left: 12%;
-      right: 12%;
-      bottom: 6px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(20, 255, 140, 0), rgba(20, 255, 140, 0.9), rgba(20, 255, 140, 0));
-      opacity: 0.85;
-    }
     .toast {
-      position: fixed;
+      position: absolute;
       top: calc(1rem + env(safe-area-inset-top));
       left: 50%;
       z-index: 40;
