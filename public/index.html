@@ -83,30 +83,35 @@
     .button.is-clipboard {
       background: rgba(154, 208, 255, 0.35);
       border: 1px solid rgba(154, 208, 255, 0.6);
-      box-shadow: 0 10px 20px rgba(8, 20, 40, 0.35);
+      box-shadow: 0 10px 20px rgba(8, 20, 40, 0.35), inset 0 -2px 0 rgba(20, 255, 140, 0.75);
     }
     .button.is-clipboard:hover {
       background: rgba(154, 208, 255, 0.55);
     }
+    .button.is-clipboard img {
+      filter: brightness(0) invert(1);
+    }
     .toast {
-      position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
-      z-index: 20;
-      background: rgba(18, 28, 48, 0.9);
-      border: 1px solid rgba(154, 208, 255, 0.35);
+      position: absolute;
+      top: calc(1rem + env(safe-area-inset-top));
+      left: 50%;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(154, 208, 255, 0.45);
       color: #e6f0ff;
-      padding: 0.75rem 1.25rem;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(2, 8, 20, 0.5);
+      padding: 0.85rem 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(2, 8, 20, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       opacity: 0;
-      transform: translateY(-10px);
+      transform: translate(-50%, -10px);
       transition: opacity 0.2s ease, transform 0.2s ease;
       pointer-events: none;
     }
     .toast.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate(-50%, 0);
     }
 
     @media screen and (min-width: 1068px) {
