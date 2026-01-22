@@ -40,6 +40,7 @@ const app = Vue.createApp({
       prev_token: null,
       next_token: null,
       clipboardButton: null,
+      toastTimeout: null,
     };
   },
 
@@ -51,6 +52,13 @@ const app = Vue.createApp({
     this.intervalHandle = setInterval(this.update, 1000);
 
     this.clipboardButton = new ClipboardJS('#clipboard-button');
+    this.clipboardButton.on('success', () => {
+      this.showToast('OTP copied to clipboard');
+    });
+    this.clipboardButton.on('error', () => {
+      this.showToast('Unable to copy OTP');
+    });
+    this.setCopyrightYear();
   },
 
   destroyed: function () {
@@ -85,6 +93,29 @@ const app = Vue.createApp({
       this.uri = 'otpauth://totp/' + encodeURIComponent(this.nickname) + '?secret=' + this.secret_key;
       document.getElementById("qr").innerHTML = "";
       var qrcode = new QRCode(document.getElementById("qr"), this.uri);
+    },
+    showToast: function (message) {
+      const toast = document.getElementById('toast');
+      if (!toast) {
+        return;
+      }
+
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+
+      if (this.toastTimeout) {
+        clearTimeout(this.toastTimeout);
+      }
+
+      this.toastTimeout = setTimeout(() => {
+        toast.classList.remove('is-visible');
+      }, 2000);
+    },
+    setCopyrightYear: function () {
+      const yearEl = document.getElementById('copyright-year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
     },
 
     getKeyFromUrl: function () {
